@@ -1,0 +1,26 @@
+<div>
+    <form #formTodo="ngForm" (ngSubmit)="addTodo(formTodo)">
+        <div class="container w-100">
+            <div class="d-flex d-column">
+                <div class="w-100">
+                    <h3>Title :</h3>
+                </div>
+                <div class="w-100">
+                    <input class="inputbox w-100" type="text" [(ngModel)]="title" name="title" required
+                        placeholder="Enter Todo Title" id="title">
+                </div>
+            </div>
+            <div class="d-flex d-column">
+                <div class="w-100">
+                    <h3>Description :</h3>
+                </div>
+                <div class="w-100">
+                    <textarea style="resize: none;" class="inputbox w-100" [(ngModel)]="desc" name="desc" rows="4"
+                        placeholder="Enter Todo Description">
+                    </textarea>
+                </div>
+            </div>
+            <button class="btn btn-add w-100" type="submit"><i class="fa-solid fa-plus"></i> {{buttonType}}</button>
+        </div>
+    </form>
+</div>

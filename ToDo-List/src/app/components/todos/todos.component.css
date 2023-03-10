@@ -1,0 +1,123 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.todo-container {
+    height: 90%;
+    width: 30%;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: white;
+    color: #002B5B;
+    border-radius: 0.5em;
+}
+
+.todo-header {
+    text-align: center;
+    border-bottom: 1px solid #0027541d;
+    padding-bottom: 1rem;
+}
+
+
+
+/* Responsive CSS */
+
+/* @media (min-width: 1281px) {
+    .todo-container {
+        height: 100%;
+        width: 100%;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: white;
+        color: #002B5B;
+        border-radius: 0.5em;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .todo-container {
+        height: 90%;
+        width: 50%;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: white;
+        color: #002B5B;
+        border-radius: 0.5em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .todo-container {
+        height: 90%;
+        width: 60%;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: white;
+        color: #002B5B;
+        border-radius: 0.5em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .todo-container {
+        height: 90%;
+        width: 80%;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: white;
+        color: #002B5B;
+        border-radius: 0.5em;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .todo-container {
+        height: 90%;
+        width: 90%;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: white;
+        color: #002B5B;
+        border-radius: 0.5em;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .todo-container {
+        height: 90%;
+        width: 90%;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: white;
+        color: #002B5B;
+        border-radius: 0.5em;
+    }
+}
+
+@media (min-width: 120px) and (max-width: 320px) {
+    .todo-container {
+        height: 90%;
+        width: 90%;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: white;
+        color: #002B5B;
+        border-radius: 0.5em;
+    }
+}
+
+@media (min-width: 370px) and (max-width: 2080px) {
+    .todos {
+        height: 90%;
+    }
+}
+
+@media (min-width: 120px) and (max-width: 370px) {
+    .todos {
+        height: 80%;
+    }
+} */

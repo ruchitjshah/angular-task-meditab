@@ -1,0 +1,24 @@
+<div class="m-1">
+    <div class="d-flex ">
+        <div class="d-flex d-center w-100">
+            <div style="width: 5%;">
+                <input type="checkbox" class="cursor-pointer" id="task{{i}}" name="taskDone" (click)="todoCheck(todo)" [checked]="!todo.active" style="width: 1rem; height: 1rem;">
+            </div>
+            <div style="width: 90%;">
+                <h2 [ngClass]="{'strike': !todo.active}">{{todo.title}}</h2>
+                <p [ngClass]="{'strike': !todo.active}" class="mb-1">{{todo.desc}}</p>
+            </div>
+
+            <div style="margin-left: 1rem;">
+                <div>
+                    <i class="fa-solid fa-trash-can cursor-pointer" (click)="deleteTodoItem(todo)"></i>
+                </div>
+                <div>
+                    <i class="fa-solid fa-pen-to-square cursor-pointer" (click)="updateTodoItem(todo)"></i>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

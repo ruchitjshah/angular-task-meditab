@@ -1,0 +1,24 @@
+<div class="main-container">
+    <div class="todo-container">
+        <div>
+            <h1 class="todo-header"> <i class="fa-solid fa-clipboard-list"></i> MediTab Todo List <i
+                    class="fa-solid fa-clipboard-list"></i></h1>
+        </div>
+        <div style="height: 60%;">
+            <div style="height: 100%;  overflow-y: scroll;">
+                <div *ngIf="this.todos.length === 0; else elseBlock">
+                    <h3 style="text-align: center; margin-top: 1rem;">No Todos To Display</h3>
+                </div>
+                <ng-template #elseBlock>
+                    <div *ngFor="let todo of todos; index as i">
+                        <app-todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)"
+                            (todoCheckbox)="todoDone($event)" (todoUpdate)="setUpdateTodo($event)"></app-todo-item>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div style="height: 40%;">
+            <app-todo-add (todoUpdateValue) = "todoUpdateValue($event)" (todoAdd)="addTodo($event)" [buttonType] = "toggleButton" [updateTodoVal] = "updateTodoVal"></app-todo-add>
+        </div>
+    </div>
+</div>
