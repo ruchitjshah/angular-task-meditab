@@ -1,3 +1,7 @@
 .btn-add:hover{
     transform: scale(1.01);
 }
+.btn-add:disabled{
+    opacity: 0.7;
+    transform: scale(1);
+}

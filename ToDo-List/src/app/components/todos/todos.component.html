@@ -18,7 +18,9 @@
             </div>
         </div>
         <div style="height: 40%;">
-            <app-todo-add (todoUpdateValue) = "todoUpdateValue($event)" (todoAdd)="addTodo($event)" [buttonType] = "toggleButton" [updateTodoVal] = "updateTodoVal"></app-todo-add>
+            <app-todo-add (todoUpdateValue) = "todoUpdateValue($event)" (todoAdd)="addTodo($event)" [buttonType] = "toggleButton" [updateTodoVal] = "updateTodoVal">
+                
+            </app-todo-add>
         </div>
     </div>
 </div>

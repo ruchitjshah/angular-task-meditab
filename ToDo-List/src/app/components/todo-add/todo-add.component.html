@@ -20,7 +20,7 @@
                     </textarea>
                 </div>
             </div>
-            <button class="btn btn-add w-100" type="submit"><i class="fa-solid fa-plus"></i> {{buttonType}}</button>
+            <button class="btn btn-add w-100" type="submit" [disabled]="!formTodo.valid"><i class="fa-solid fa-plus"></i> {{buttonType}}</button>
         </div>
     </form>
 </div>
