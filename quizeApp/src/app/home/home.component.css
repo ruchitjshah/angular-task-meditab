@@ -1,0 +1,9 @@
+.container {
+    height: 82vh;
+    margin: 1rem;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}

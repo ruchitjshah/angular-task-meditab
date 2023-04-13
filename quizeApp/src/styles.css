@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-size: 16px; */
+    /* font-family: 'Alkatra', cursive; */
+    font-family: 'Concert One', cursive;
+}
+
+body{
+    background-color: #277BC0;
+    color: #161919;
+}
+
+.btn{
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+}
+
+
+
+.btn-primary{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-primary:hover{
+    background-color: #023460;
+    border-color: #2e6da4;
+}
+
+.btn-warning{
+    color: #161919;
+    background-color: #ffc800;
+    border-color: #ffc800;
+}
+
+.btn-warning:hover {
+    background-color: #deae00;
+    border-color: #ffc800;
+}
+
+.btn-primary:disabled{
+    opacity: 0.7;
+}

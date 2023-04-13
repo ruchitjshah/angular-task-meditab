@@ -1,0 +1,87 @@
+<div class="quiz-section">
+    <div class="name-section">
+        <ng-container *ngIf="!isQuizCompleted">
+            <h1 style="font-size: 3.5rem; color: #2e6da4; text-transform: capitalize;">Welcome to the Quiz, <span
+                    style="color: black;">{{userName}}</span></h1>
+        </ng-container>
+        <ng-container *ngIf="isQuizCompleted">
+            <h1 style="font-size: 3.5rem; color: #2e6da4; text-transform: capitalize;"><span
+                    style="color: black;">{{userName}},</span> Your Score is
+            </h1>
+        </ng-container>
+    </div>
+
+    <ng-container *ngIf="!isQuizCompleted">
+
+        <div style="display: flex; flex-direction: column; justify-content: space-around; height: 90%;">
+            <div class="score-section">
+                <div class="score">
+                    <h5>{{points}} Points</h5>
+                </div>
+                <div class="question-remain">
+                    <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
+                </div>
+                <div class="timer">
+                    <h5>{{counter}} sec ⏱</h5>
+                </div>
+            </div>
+            <div class="question-section">
+                <div class="question">
+                    <div>
+                        <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+                    </div>
+                </div>
+                <div class="options">
+                    <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                        <li (click)="answer(currentQuestion+1,option)">
+                            <div class="card" appChangeBg [isCorrect]="option.correct">
+                                {{option.text}}
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="control-section">
+                <div style="width: 33.33%; display: flex; justify-content: flex-start;">
+                    <button class="btn btn-primary" (click)="previousQuestion()" [disabled]="currentQuestion===0">
+                        <!-- [disabled]="currentQuestion===0" class="btn" (click)="previousQuestion()" -->
+                        <i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i></button>
+                </div>
+                <div style="width: 33.33%; display: flex; justify-content: center;">
+                    <button class="btn btn-warning" (click)="resetQuiz()">
+                        <!-- class="btn" (click)="resetQuiz()" -->
+                        <i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button>
+                </div>
+                <div style="width: 33.33%; display: flex; justify-content: flex-end;">
+                    <button class="btn btn-primary" (click)="nextQuestion()">
+                        <!-- class="btn" (click)="nextQuestion()" -->
+                        <i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </ng-container>
+
+    <ng-container *ngIf="isQuizCompleted">
+        <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 70%;">
+            <div class="reseult-section">
+                <div class="">
+                    <ng-container *ngIf="correctAnswer >= 4">
+                        <h1 style="color: green; font-size: 6rem;">Congratulations!!🥳</h1>
+                    </ng-container>
+                    <ng-container *ngIf="correctAnswer < 4">
+                        <h1 style="color: red; font-size: 5rem;">Better Luck Next Time!!😔</h1>
+                    </ng-container>
+                    <h3 style="margin-bottom: 3rem;">You have completed the quiz, Below is your result:</h3>
+                    <div style="color: rgb(110, 109, 109);">
+                        <p>Total Question Attempted : {{questionList.length}} </p>
+                        <p>Total Correct Answered : {{correctAnswer}} </p>
+                        <p>Total Wrong Answered : {{incorrectAnswer}} </p>
+                        <p>Your Score : {{points}} Points </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</div>

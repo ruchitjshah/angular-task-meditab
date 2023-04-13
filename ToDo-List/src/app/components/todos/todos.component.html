@@ -10,16 +10,20 @@
                     <h3 style="text-align: center; margin-top: 1rem;">No Todos To Display</h3>
                 </div>
                 <ng-template #elseBlock>
-                    <div *ngFor="let todo of todos; index as i">
-                        <app-todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)"
-                            (todoCheckbox)="todoDone($event)" (todoUpdate)="setUpdateTodo($event)"></app-todo-item>
-                    </div>
+                    <ng-container *ngFor="let todo of todos; index as i">
+                        <div class="box " #dragTodo draggable="true" style="z-index:5">
+                            <app-todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)"
+                                (todoCheckbox)="todoDone($event)" (todoUpdate)="setUpdateTodo($event)">
+                            </app-todo-item>
+                        </div>
+                    </ng-container>
+
                 </ng-template>
             </div>
         </div>
         <div style="height: 40%;">
-            <app-todo-add (todoUpdateValue) = "todoUpdateValue($event)" (todoAdd)="addTodo($event)" [buttonType] = "toggleButton" [updateTodoVal] = "updateTodoVal">
-                
+            <app-todo-add (todoUpdateValue)="todoUpdateValue($event)" (todoAdd)="addTodo($event)"
+                [buttonType]="toggleButton" [updateTodoVal]="updateTodoVal">
             </app-todo-add>
         </div>
     </div>

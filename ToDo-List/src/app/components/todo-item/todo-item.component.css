@@ -14,3 +14,7 @@ h2 , p{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.box.over {
+    border: 3px dotted rgb(245, 41, 41);
+}

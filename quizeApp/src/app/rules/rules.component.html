@@ -1,0 +1,30 @@
+<div class="home-section">
+    <div class="rules-section">
+        <div>
+            <p>This quiz will contains total 9 questions. Each Question holds 10 Points</p>
+            <h2>Rules:</h2>
+            <ol>
+                <li>Correct Question gives you 10 points</li>
+                <li>Incorrect question gives to -10 points</li>
+                <li>You will have 60 sec to answer each question</li>
+                <li>Refereshing the page will reset the Quiz</li>
+            </ol>
+        </div>
+        
+        <h1>All The Best!!</h1>
+    </div>
+    <div class="username-section">
+        <div>
+            <label for="">Enter Your Name:</label>
+        </div>
+        <div>
+            <input #name type="text" class="form-control">
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="submitName(name.value)">Start Quiz!</button>
+        </div>
+        
+    </div>
+</div>
+
+
