@@ -1,0 +1,59 @@
+<div class="expense-form">
+    <div class="form-title">
+        <h2><i class="fa-solid fa-file-circle-plus"></i> Add New Expense</h2>
+    </div>
+    <div class="form-fields">
+        <div class="flex flex-column gap-2 mb-5">
+            <label htmlFor="username" class="label-font-style">Expense Name</label>
+            <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="value"
+                placeholder="Enter Expense Name" />
+        </div>
+
+        <div class="flex flex-column gap-2 mb-3">
+            <label htmlFor="username" class="label-font-style">Distribute Between</label>
+            <div *ngFor="let category of categories" class="field-checkbox">
+                <div style="width: 80%;">
+                    <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
+                        [inputId]="category.key"></p-checkbox>
+                    <label [for]="category.key" style="padding-left: 0.5rem;">{{ category.name }}</label>
+                </div>
+                <div style="width: 20%;">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">&#x20b9;</span>
+                        <input type="text" pInputText placeholder="00" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-column gap-2 mb-5">
+            <label htmlFor="username" class="label-font-style">Paid By</label>
+            <p-dropdown class="flex flex-column" [options]="cities" [(ngModel)]="selectedCity"
+                optionLabel="name"></p-dropdown>
+        </div>
+        <div class="mb-5 w-100 flex justify-content-between">
+            <div class="flex align-items-center">
+                <div style="padding-right: 0.5rem;">
+                    <label class="label-font-style">Total Person : </label>
+                </div>
+                <div>
+                    <span class="count-style">0</span>
+                </div>
+            </div>
+            <div class="flex align-items-center">
+                <div style="padding-right: 0.5rem;">
+                    <label class="label-font-style">Total Amount : </label>
+                </div>
+                <div>
+                    <span class="count-style">&#x20b9; 0</span>
+                </div>
+            </div>
+        </div>
+
+        <p-button styleClass="p-button-success w-100 text-center">
+            <span class="ml-2 w-100" style="font-weight: 500; font-size: 1.2rem;"><i
+                    class="fa-solid fa-circle-plus"></i> Add Expense</span>
+        </p-button>
+
+    </div>
+</div>

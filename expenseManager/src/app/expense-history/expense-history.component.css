@@ -1,0 +1,33 @@
+.expense-history {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 17.5vh);
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border-radius: 0.4rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.history-title {
+  width: 50%;
+  position: absolute;
+  right: 0;
+  padding: 0.3rem 0;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: #ff640b;
+  font-size: 1.1rem;
+  text-align: center;
+  border-bottom-left-radius: 5rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.history-title h2 {
+  font-weight: 600;
+}
+
+.history{
+  margin-top: 5rem;
+  height: calc(100vh - 28vh);
+  /* border: 1px solid black; */
+}
