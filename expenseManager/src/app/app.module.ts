@@ -17,6 +17,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ChipModule } from 'primeng/chip';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ChipModule } from 'primeng/chip';
     MessageModule,
     MessagesModule,
     ChipModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
