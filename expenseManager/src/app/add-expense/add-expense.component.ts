@@ -26,6 +26,7 @@ export class AddExpenseComponent implements OnInit {
     { name: 'Raj Patel', key: 'P' },
     { name: 'Ruchit Shah', key: 'A' },
     { name: 'Saumya Shah', key: 'R' },
+    { name: 'Saumya Shah', key: 'R' },
   ];
   selectedCategories: Catagory[] = [];
 
