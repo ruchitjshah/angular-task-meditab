@@ -39,7 +39,6 @@ export class AddExpenseComponent implements OnInit {
       { name: 'Rome', code: 'RM' },
       { name: 'London', code: 'LDN' },
       { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' },
     ];
 
     this.messages = [

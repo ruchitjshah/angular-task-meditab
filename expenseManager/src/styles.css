@@ -22,8 +22,55 @@ body {
 .count-style {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #7F8487;
+  color: #7f8487;
 }
+
+.p-button {
+  padding: 0.5rem 1rem !important;
+}
+
+.p-button.p-button-sm {
+  padding: 0.5rem 1rem !important;
+}
+
+.p-accordion .p-accordion-header .p-accordion-header-link {
+  padding: 0.5rem 1rem;
+  border: 2px solid #0a4d68;
+  background: transparent !important;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: box-shadow 0.2s;
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+    background: transparent;
+    border-color: #0a4d68;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.p-accordion .p-accordion-content {
+    padding: 1.25rem;
+    border: 2px solid #0a4d68;
+    background: #ffffff;
+    color: #495057;
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.p-button-blue{
+ background: #0a4d68;
+ border: none;
+}
+
+.p-button-blue:hover{
+  background: #03394f !important;
+ border: none;
+}
+
 
 .w-100 {
   width: 100%;
@@ -32,15 +79,19 @@ body {
 .mb-1 {
   margin-bottom: 1rem;
 }
+
 .mb-2 {
   margin-bottom: 1.5rem;
 }
+
 .mb-3 {
   margin-bottom: 2rem;
 }
+
 .mb-4 {
   margin-bottom: 2.5rem;
 }
+
 .mb-5 {
   margin-bottom: 3rem;
 }

@@ -18,6 +18,8 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ChipModule } from 'primeng/chip';
 import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { CardModule } from 'primeng/card';
     MessagesModule,
     ChipModule,
     CardModule,
+    AccordionModule,
+    TabViewModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

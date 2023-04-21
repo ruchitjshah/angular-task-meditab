@@ -1,7 +1,34 @@
-.expense-person{
-    width: 100%;
-    height: calc(100vh - 17.5vh);
-    background-color: #fff;
-    border-radius: 0.4rem; 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+.expense-person {
+  padding: 1.5rem 1.5rem;
+  width: 100%;
+  height: calc(100vh - 17.5vh);
+  background-color: #fff;
+  border-radius: 0.4rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+/* Scrollbar CSS */
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #627d985e;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #627d98ce;
 }
