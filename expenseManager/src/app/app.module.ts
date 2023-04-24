@@ -8,7 +8,7 @@ import { MaincomponentComponent } from './maincomponent/maincomponent.component'
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 import { ExpenseHistoryComponent } from './expense-history/expense-history.component';
 import { ExpensePersonComponent } from './expense-person/expense-person.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -20,6 +20,7 @@ import { ChipModule } from 'primeng/chip';
 import { CardModule } from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
 import { TabViewModule } from 'primeng/tabview';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { TabViewModule } from 'primeng/tabview';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     ButtonModule,
     InputTextModule,

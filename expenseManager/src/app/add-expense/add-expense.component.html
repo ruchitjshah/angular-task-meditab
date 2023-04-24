@@ -2,60 +2,67 @@
     <div class="form-title">
         <h2><i class="fa-solid fa-file-circle-plus"></i> Add New Expense</h2>
     </div>
-    <div class="form-fields">
-        <div class="flex flex-column gap-2 mb-5">
-            <label htmlFor="username" class="label-font-style">Expense Name</label>
-            <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="value"
-                placeholder="Enter Expense Name" />
-        </div>
+    <form [formGroup]="expenseForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-fields">
+            <div class="flex flex-column gap-2 mb-5">
+                <label htmlFor="username" class="label-font-style">Expense Name</label>
+                <input pInputText id="username" aria-describedby="username-help" formControlName='expenseName'
+                    placeholder="Enter Expense Name" />
+            </div>
 
-        <div class="flex flex-column gap-2 mb-2">
-            <label htmlFor="username" class="label-font-style">Distribute Between</label>
-            <div class="distribute-style">
-                <div *ngFor="let category of categories" class="field-checkbox">
-                    <div style="width: 75%;">
-                        <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
-                            [inputId]="category.key"></p-checkbox>
-                        <label [for]="category.key" style="padding-left: 0.5rem;">{{ category.name }}</label>
+            <div class="flex flex-column gap-2 mb-2">
+                <label htmlFor="username" class="label-font-style">Distribute Between</label>
+                <div class="distribute-style">
+                    <div *ngFor="let member of members; let i = index" formArrayName="distributeBetween"
+                        class="field-checkbox">
+                        <ng-container [formGroupName]="i">
+                            <div style="width: 75%;" class="flex align-items-center">
+                                <p-checkbox name="isSelect" [value]='true' formControlName="isSelect"
+                                    [inputId]="member.id" (onChange)="onCheckboxChange($event)"></p-checkbox>
+                                <input disabled type="text" class="label-input-field" pInputText
+                                    placeholder="{{ member.name }}" />
+                                <!-- <label [for]="category.id" style="padding-left: 0.5rem;"></label> -->
+                            </div>
+                            <div style="width: 25%;">
+                                <div class="p-inputgroup price-input">
+                                    <span class="p-inputgroup-addon">&#x20b9;</span>
+                                    <input #amount type="text" pInputText placeholder="00" formControlName='amount'/>
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
-                    <div style="width: 25%;">
-                        <div class="p-inputgroup price-input">
-                            <span class="p-inputgroup-addon">&#x20b9;</span>
-                            <input type="text" pInputText placeholder="00" />
-                        </div>
+                </div>
+            </div>
+
+            <div class="flex flex-column gap-2 mb-5">
+                <label htmlFor="username" class="label-font-style">Paid By</label>
+                <p-dropdown class="flex flex-column" [options]="paidByOptions" formControlName='paidBy'
+                    optionLabel="name"></p-dropdown>
+            </div>
+            <div class="mb-5 w-100 flex justify-content-between">
+                <div class="flex align-items-center">
+                    <div style="padding-right: 0.5rem;">
+                        <label class="label-font-style">Total Person : </label>
+                    </div>
+                    <div>
+                        <span class="count-style">{{totalPerson}}</span>
+                    </div>
+                </div>
+                <div class="flex align-items-center">
+                    <div style="padding-right: 0.5rem;">
+                        <label class="label-font-style">Total Amount : </label>
+                    </div>
+                    <div>
+                        <span class="count-style">&#x20b9; {{totalAmount}}</span>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="flex flex-column gap-2 mb-5">
-            <label htmlFor="username" class="label-font-style">Paid By</label>
-            <p-dropdown class="flex flex-column" [options]="cities" [(ngModel)]="selectedCity"
-                optionLabel="name"></p-dropdown>
-        </div>
-        <div class="mb-5 w-100 flex justify-content-between">
-            <div class="flex align-items-center">
-                <div style="padding-right: 0.5rem;">
-                    <label class="label-font-style">Total Person : </label>
-                </div>
-                <div>
-                    <span class="count-style">0</span>
-                </div>
-            </div>
-            <div class="flex align-items-center">
-                <div style="padding-right: 0.5rem;">
-                    <label class="label-font-style">Total Amount : </label>
-                </div>
-                <div>
-                    <span class="count-style">&#x20b9; 0</span>
-                </div>
-            </div>
-        </div>
+            <p-button styleClass="p-button-success p-button-sm w-100 text-center btn" type="submit">
+                <span class="ml-2 w-100" style="font-weight: 500; font-size: 1.2rem;">
+                    <i class="fa-solid fa-plus"></i> Add Expense</span>
+            </p-button>
 
-        <p-button styleClass="p-button-success p-button-sm w-100 text-center btn">
-            <span class="ml-2 w-100" style="font-weight: 500; font-size: 1.2rem;">
-                <i class="fa-solid fa-plus"></i> Add Expense</span>
-        </p-button>
-
-    </div>
+        </div>
+    </form>
 </div>

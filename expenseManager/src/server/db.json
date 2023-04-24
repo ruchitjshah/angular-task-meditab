@@ -1,0 +1,23 @@
+{
+  "members": [
+    { "id": 1, "name": "Ruchit Shah" },
+    {
+      "id": 2,
+      "name": "Raj Patel"
+    },
+    {
+      "id": 3,
+      "name": "Meet Patel"
+    },
+    {
+      "id": 4,
+      "name": "Shyam Mendapara"
+    },
+    {
+      "id": 5,
+      "name": "Pranav Chanapara"
+    }
+  ],
+
+  "expenses": []
+}

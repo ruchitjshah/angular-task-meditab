@@ -65,6 +65,15 @@
     padding: 0.5rem 1rem !important;
 }
 
+
+.label-input-field:disabled{
+  opacity: 1;
+  border: none;
+  color: black;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
 /* Scrollbar CSS */
 /* width */
 ::-webkit-scrollbar {
