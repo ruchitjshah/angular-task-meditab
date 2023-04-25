@@ -10,7 +10,7 @@
                     placeholder="Enter Expense Name" />
             </div>
 
-            <div class="flex flex-column gap-2 mb-2">
+            <div class="flex flex-column gap-2 mb-5">
                 <label htmlFor="username" class="label-font-style">Distribute Between</label>
                 <div class="distribute-style">
                     <div *ngFor="let member of members; let i = index" formArrayName="distributeBetween"
@@ -18,15 +18,17 @@
                         <ng-container [formGroupName]="i">
                             <div style="width: 75%;" class="flex align-items-center">
                                 <p-checkbox name="isSelect" [value]='true' formControlName="isSelect"
-                                    [inputId]="member.id" (onChange)="onCheckboxChange($event)"></p-checkbox>
-                                <input disabled type="text" class="label-input-field" pInputText
+                                    [inputId]="member.id" (onChange)="onCheckboxChange(amount,i)"></p-checkbox>
+                                <input type="text" class="label-input-field" pInputText formControlName='name'
                                     placeholder="{{ member.name }}" />
                                 <!-- <label [for]="category.id" style="padding-left: 0.5rem;"></label> -->
                             </div>
                             <div style="width: 25%;">
                                 <div class="p-inputgroup price-input">
                                     <span class="p-inputgroup-addon">&#x20b9;</span>
-                                    <input #amount type="text" pInputText placeholder="00" formControlName='amount'/>
+                                    <input #amount type="text" pInputText class="amount-style"
+                                        (change)="calcTotalAmount(amount, i)" placeholder="00"
+                                        formControlName='amount' />
                                 </div>
                             </div>
                         </ng-container>
@@ -58,7 +60,8 @@
                 </div>
             </div>
 
-            <p-button styleClass="p-button-success p-button-sm w-100 text-center btn" type="submit">
+            <p-button styleClass="p-button-success p-button-sm w-100 text-center btn" type="submit"
+                [disabled]="!expenseForm.valid">
                 <span class="ml-2 w-100" style="font-weight: 500; font-size: 1.2rem;">
                     <i class="fa-solid fa-plus"></i> Add Expense</span>
             </p-button>

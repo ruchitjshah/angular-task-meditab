@@ -1,6 +1,9 @@
 {
   "members": [
-    { "id": 1, "name": "Ruchit Shah" },
+    {
+      "id": 1,
+      "name": "Ruchit Shah"
+    },
     {
       "id": 2,
       "name": "Raj Patel"
@@ -18,6 +21,115 @@
       "name": "Pranav Chanapara"
     }
   ],
-
-  "expenses": []
+  "expenses": [
+    {
+      "expenseName": "Tea Party",
+      "distributeBetween": [
+        {
+          "name": "Ruchit Shah",
+          "amount": "30",
+          "isSelect": [
+            true
+          ]
+        },
+        {
+          "name": "Raj Patel",
+          "amount": "20",
+          "isSelect": [
+            true
+          ]
+        }
+      ],
+      "paidBy": {
+        "id": 1,
+        "name": "Ruchit Shah"
+      },
+      "totalAmount": "50",
+      "totalPerson": "2",
+      "date": "25/04/2023",
+      "id": 1
+    },
+    {
+      "expenseName": "Coffee",
+      "distributeBetween": [
+        {
+          "name": "Ruchit Shah",
+          "amount": "20",
+          "isSelect": [
+            true
+          ]
+        },
+        {
+          "name": "Raj Patel",
+          "amount": "30",
+          "isSelect": [
+            true
+          ]
+        },
+        {
+          "name": "Meet Patel",
+          "amount": "40",
+          "isSelect": [
+            true
+          ]
+        }
+      ],
+      "paidBy": {
+        "id": 3,
+        "name": "Meet Patel"
+      },
+      "totalAmount": "90",
+      "totalPerson": "3",
+      "date": "25/04/2023",
+      "id": 2
+    },
+    {
+      "expenseName": "Pizza Party",
+      "distributeBetween": [
+        {
+          "name": "Ruchit Shah",
+          "amount": "250",
+          "isSelect": [
+            true
+          ]
+        },
+        {
+          "name": "Raj Patel",
+          "amount": "250",
+          "isSelect": [
+            true
+          ]
+        },
+        {
+          "name": "Meet Patel",
+          "amount": "250",
+          "isSelect": [
+            true
+          ]
+        },
+        {
+          "name": "Shyam Mendapara",
+          "amount": "250",
+          "isSelect": [
+            true
+          ]
+        },
+        {
+          "name": "Pranav Chanapara",
+          "amount": "250",
+          "isSelect": [
+            true
+          ]
+        }
+      ],
+      "paidBy": {
+        "id": 5,
+        "name": "Pranav Chanapara"
+      },
+      "totalAmount": "1250",
+      "totalPerson": "5",
+      "date": "25/04/2023",
+      "id": 3
+    }
+  ]
 }

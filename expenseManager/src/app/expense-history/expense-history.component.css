@@ -80,6 +80,10 @@
   color: #ff640b;
 }
 
+.card-text:last-child span:last-child{
+  display: none;
+}
+
 /* Scrollbar CSS */
 /* width */
 ::-webkit-scrollbar {

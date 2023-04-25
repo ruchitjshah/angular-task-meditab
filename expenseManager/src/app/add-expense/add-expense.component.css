@@ -42,7 +42,7 @@
 .distribute-style {
   padding: 0.3rem;
   padding-left: 0.2rem;
-  height: 15.5rem;
+  max-height: 15.5rem;
   overflow-y: scroll;
 }
 
@@ -61,17 +61,42 @@
 }
 
 .p-button.p-button-sm {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem !important;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem !important;
 }
 
-
-.label-input-field:disabled{
+.label-input-field:disabled {
   opacity: 1;
   border: none;
-  color: black;
+  color: #363636;
   font-weight: 600;
   font-size: 1.1rem;
+  cursor: not-allowed;
+}
+
+.label-input-field {
+  opacity: 1;
+  border: none;
+  color: #363636;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: no-drop;
+}
+
+.label-input-field:focus {
+  opacity: 1;
+  outline: none !important;
+  border: none !important;
+  pointer-events: none !important;
+  box-shadow: none;
+  color: #363636;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: no-drop;
+}
+
+.amount-style:disabled {
+  cursor: not-allowed;
 }
 
 /* Scrollbar CSS */

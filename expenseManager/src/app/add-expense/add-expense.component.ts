@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MembersService } from '../service/members.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { map, of } from 'rxjs';
 import { ExpensesService } from '../service/expenses.service';
+import { formatDate } from '@angular/common';
 
-interface City {
+interface IMembers {
   name: string;
   id: string;
 }
 
-interface Catagory {
-  name: string;
-  id: string;
-}
 @Component({
   selector: 'app-add-expense',
   templateUrl: './add-expense.component.html',
@@ -20,22 +16,22 @@ interface Catagory {
 })
 export class AddExpenseComponent implements OnInit {
   expenseForm = this.fb.group({
-    expenseName: ['', Validators.required],
+    expenseName: ['', { nonNullable: true }],
     distributeBetween: this.fb.array([]),
-    paidBy: ['', Validators.required],
-    totalAmount: [''],
+    paidBy: ['', { nonNullable: true }],
+    totalAmount: ['', { nonNullable: true }],
+    totalPerson: ['', { nonNullable: true }],
+    date: [''],
   });
 
-  members: Catagory[] = [];
-  selectedMember: Catagory[] = [];
-  paidByOptions: City[] | any;
-  selectedPaidBy: City | any;
+  members: IMembers[] = [];
+  selectedMember: IMembers[] = [];
+  paidByOptions: IMembers[] = [];
+  selectedPaidBy: IMembers | any;
   totalAmount: number = 0;
   totalPerson: number = 0;
 
   isRupeeTrue: boolean = true;
-
-  value: string = '';
 
   constructor(
     private expensesService: ExpensesService,
@@ -51,8 +47,6 @@ export class AddExpenseComponent implements OnInit {
         this.setDistributeBetween(this.members[i].name);
       }
     });
-
-    // console.log(this.expenseForm);
   }
 
   setDistributeBetween(memberName: string) {
@@ -61,21 +55,66 @@ export class AddExpenseComponent implements OnInit {
     ) as FormArray;
     distributeField.push(
       this.fb.group({
-        name: [memberName, Validators.required],
-        amount: [{ value: 0, disabled: true }, Validators.required],
-        isSelect: false,
+        name: [{ value: memberName, disabled: true }, { nonNullable: true }],
+        amount: [{ value: 0, disabled: true }, { nonNullable: true }],
+        isSelect: [false, { nonNullable: true }],
       })
     );
   }
 
-  onCheckboxChange(e: any) {
-    console.log("hello");
-    
-    console.log(e);
-    
+  get allCheckBoxControls() {
+    return this.expenseForm.controls.distributeBetween.controls;
+  }
+  onCheckboxChange(amount: HTMLInputElement, i: number) {
+    if (this.allCheckBoxControls[i].get('isSelect')?.value.length) {
+      this.allCheckBoxControls[i].get('amount')?.enable();
+      this.allCheckBoxControls[i].get('name')?.enable();
+      this.totalPerson += 1;
+    } else {
+      this.allCheckBoxControls[i].get('amount')?.disable();
+      this.allCheckBoxControls[i].get('name')?.disable();
+      this.totalPerson -= 1;
+      amount.value = '0';
+      this.calcTotalAmount(amount, i);
+    }
+  }
+
+  tempTotalAmount: Array<number> = [0];
+  calcTotalAmount(amount: HTMLInputElement, i: number) {
+    if (this.allCheckBoxControls[i].get('isSelect')?.value.length) {
+      this.tempTotalAmount[i] = Number(amount.value);
+      this.totalAmount = this.tempTotalAmount.reduce(
+        (acc, cur) => acc + Number(cur),
+        0
+      );
+    } else {
+      this.tempTotalAmount[i] = 0;
+      this.totalAmount = this.tempTotalAmount.reduce(
+        (acc, cur) => acc + Number(cur),
+        0
+      );
+    }
   }
 
   onFormSubmit() {
-    this.expensesService.removeUnincludedMember(this.expenseForm.value);
+    let currentDate = new Date();
+    this.expenseForm.get('totalAmount')?.setValue(this.totalAmount.toString());
+    this.expenseForm.get('totalPerson')?.setValue(this.totalPerson.toString());
+    this.expenseForm
+      .get('date')
+      ?.setValue(formatDate(currentDate, 'dd/MM/yyyy', 'en-US'));
+    this.expensesService
+      .addexpense(this.expenseForm.value)
+      .subscribe((value) => {
+        // console.log(value);
+      });
+
+    // console.log(this.expenseForm);
+
+    this.expenseForm.reset();
+    this.totalPerson = 0;
+    this.totalAmount = 0;
+
+    // console.log(this.expenseForm);
   }
 }
