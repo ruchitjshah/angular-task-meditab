@@ -7,20 +7,21 @@ import { ExpensesService } from '../service/expenses.service';
   styleUrls: ['./expense-history.component.css'],
 })
 export class ExpenseHistoryComponent implements OnInit {
-
   expensesArray: Array<any> = [];
 
-  constructor(private expenseService: ExpensesService){
-
-  }
+  constructor(private expenseService: ExpensesService) {}
 
   ngOnInit(): void {
-
-    this.expenseService.getAllExpenses().subscribe(value => {
-      this.expensesArray = value;
-      console.log(this.expensesArray);
-    })
-    
+    this.getAllExpenses();
+    this.expenseService.loadExpenses.subscribe(() => {
+      this.getAllExpenses();
+    });
   }
 
+  getAllExpenses() {
+    this.expenseService.getAllExpenses().subscribe((value) => {
+      this.expensesArray = value;
+      console.log(this.expensesArray);
+    });
+  }
 }

@@ -28,16 +28,12 @@
         {
           "name": "Ruchit Shah",
           "amount": "30",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         },
         {
           "name": "Raj Patel",
           "amount": "20",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         }
       ],
       "paidBy": {
@@ -55,23 +51,17 @@
         {
           "name": "Ruchit Shah",
           "amount": "20",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         },
         {
           "name": "Raj Patel",
           "amount": "30",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         },
         {
           "name": "Meet Patel",
           "amount": "40",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         }
       ],
       "paidBy": {
@@ -89,37 +79,27 @@
         {
           "name": "Ruchit Shah",
           "amount": "250",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         },
         {
           "name": "Raj Patel",
           "amount": "250",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         },
         {
           "name": "Meet Patel",
           "amount": "250",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         },
         {
           "name": "Shyam Mendapara",
           "amount": "250",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         },
         {
           "name": "Pranav Chanapara",
           "amount": "250",
-          "isSelect": [
-            true
-          ]
+          "isSelect": [true]
         }
       ],
       "paidBy": {

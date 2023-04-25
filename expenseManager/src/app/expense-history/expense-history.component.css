@@ -31,7 +31,6 @@
   height: calc(100vh - 28vh);
   overflow: hidden;
   overflow-y: scroll;
-  /* border: 1px solid black; */
 }
 
 .card {
@@ -39,7 +38,7 @@
   margin-right: 0.4rem;
   margin-left: 0.6rem;
   margin-bottom: 1rem;
-  /* border: 1px solid black; */
+  cursor: pointer;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08) !important;
   border-radius: 0.4rem;
 }

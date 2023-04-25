@@ -105,16 +105,11 @@ export class AddExpenseComponent implements OnInit {
       ?.setValue(formatDate(currentDate, 'dd/MM/yyyy', 'en-US'));
     this.expensesService
       .addexpense(this.expenseForm.value)
-      .subscribe((value) => {
-        // console.log(value);
-      });
-
-    // console.log(this.expenseForm);
+      .subscribe((value) => {});
 
     this.expenseForm.reset();
     this.totalPerson = 0;
     this.totalAmount = 0;
-
-    // console.log(this.expenseForm);
+    this.expensesService.loadExpenses.emit();
   }
 }
