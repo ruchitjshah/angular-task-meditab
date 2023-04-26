@@ -82,7 +82,9 @@
 .card-text:last-child span:last-child{
   display: none;
 }
-
+.history-area{
+  word-wrap: break-word;
+}
 /* Scrollbar CSS */
 /* width */
 ::-webkit-scrollbar {

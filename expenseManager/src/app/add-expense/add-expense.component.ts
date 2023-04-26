@@ -3,6 +3,7 @@ import { MembersService } from '../service/members.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExpensesService } from '../service/expenses.service';
 import { formatDate } from '@angular/common';
+import { Observable } from 'rxjs';
 
 interface IMembers {
   name: string;
@@ -15,18 +16,18 @@ interface IMembers {
   styleUrls: ['./add-expense.component.css'],
 })
 export class AddExpenseComponent implements OnInit {
+  currentDate = new Date();
   expenseForm = this.fb.group({
-    expenseName: ['', { nonNullable: true }],
+    expenseName: ['', Validators.required],
     distributeBetween: this.fb.array([]),
-    paidBy: ['', { nonNullable: true }],
-    totalAmount: ['', { nonNullable: true }],
-    totalPerson: ['', { nonNullable: true }],
-    date: [''],
+    paidBy: ['', Validators.required],
+    totalAmount: [''],
+    totalPerson: [''],
+    date: [formatDate(this.currentDate, 'dd/MM/yyyy', 'en-US')],
   });
 
   members: IMembers[] = [];
   selectedMember: IMembers[] = [];
-  paidByOptions: IMembers[] = [];
   selectedPaidBy: IMembers | any;
   totalAmount: number = 0;
   totalPerson: number = 0;
@@ -40,9 +41,12 @@ export class AddExpenseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getMembersForDistribute();
+  }
+
+  getMembersForDistribute() {
     this.memberService.getMembers().subscribe((value) => {
       this.members = value;
-      this.paidByOptions = value;
       for (let i = 0; i < this.members.length; i++) {
         this.setDistributeBetween(this.members[i].name);
       }
@@ -55,9 +59,9 @@ export class AddExpenseComponent implements OnInit {
     ) as FormArray;
     distributeField.push(
       this.fb.group({
-        name: [{ value: memberName, disabled: true }, { nonNullable: true }],
-        amount: [{ value: 0, disabled: true }, { nonNullable: true }],
-        isSelect: [false, { nonNullable: true }],
+        name: [{ value: memberName, disabled: true }],
+        amount: [{ value: 0, disabled: true }],
+        isSelect: [false],
       })
     );
   }
@@ -97,17 +101,14 @@ export class AddExpenseComponent implements OnInit {
   }
 
   onFormSubmit() {
-    let currentDate = new Date();
     this.expenseForm.get('totalAmount')?.setValue(this.totalAmount.toString());
     this.expenseForm.get('totalPerson')?.setValue(this.totalPerson.toString());
-    this.expenseForm
-      .get('date')
-      ?.setValue(formatDate(currentDate, 'dd/MM/yyyy', 'en-US'));
     this.expensesService
       .addexpense(this.expenseForm.value)
       .subscribe((value) => {});
 
     this.expenseForm.reset();
+    this.tempTotalAmount = [0];
     this.totalPerson = 0;
     this.totalAmount = 0;
     this.expensesService.loadExpenses.emit();

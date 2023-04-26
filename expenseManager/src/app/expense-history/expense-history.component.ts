@@ -21,7 +21,7 @@ export class ExpenseHistoryComponent implements OnInit {
   getAllExpenses() {
     this.expenseService.getAllExpenses().subscribe((value) => {
       this.expensesArray = value;
-      console.log(this.expensesArray);
+      // console.log(this.expensesArray);
     });
   }
 }
