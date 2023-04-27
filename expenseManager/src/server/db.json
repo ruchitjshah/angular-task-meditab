@@ -23,27 +23,70 @@
   ],
   "expenses": [
     {
-      "expenseName": "Tea Party",
+      "expenseName": "Coffee",
       "distributeBetween": [
         {
           "name": "Ruchit Shah",
-          "amount": "10",
+          "amount": "50",
           "userId": 1
         },
         {
           "name": "Raj Patel",
-          "amount": "20",
+          "amount": "50",
           "userId": 2
+        },
+        {
+          "name": "Meet Patel",
+          "amount": "70",
+          "userId": 3
         }
       ],
       "paidBy": {
         "id": 2,
         "name": "Raj Patel"
       },
-      "totalAmount": "30",
-      "totalPerson": "2",
+      "totalAmount": "170",
+      "totalPerson": "3",
       "date": "27/04/2023",
       "id": 1
+    },
+    {
+      "expenseName": "Tea Party",
+      "distributeBetween": [
+        {
+          "name": "Ruchit Shah",
+          "amount": "20",
+          "userId": 1
+        },
+        {
+          "name": "Raj Patel",
+          "amount": "20",
+          "userId": 2
+        },
+        {
+          "name": "Meet Patel",
+          "amount": "20",
+          "userId": 3
+        },
+        {
+          "name": "Shyam Mendapara",
+          "amount": "20",
+          "userId": 4
+        },
+        {
+          "name": "Pranav Chanapara",
+          "amount": "20",
+          "userId": 5
+        }
+      ],
+      "paidBy": {
+        "id": 3,
+        "name": "Meet Patel"
+      },
+      "totalAmount": "100",
+      "totalPerson": "5",
+      "date": null,
+      "id": 2
     }
   ]
 }

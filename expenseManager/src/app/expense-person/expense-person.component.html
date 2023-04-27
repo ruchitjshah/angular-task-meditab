@@ -1,12 +1,12 @@
 <div class="expense-person">
     <p-accordion class="w-full" [activeIndex]="0">
-        <p-accordionTab>
+        <p-accordionTab *ngFor="let member of members">
             <ng-template pTemplate="header">
                 <div class=" w-100 flex align-items-center justify-content-between">
                     <div>
                         <i class="pi pi-search mr-2"></i>
-                        <span class="vertical-align-middle" style="font-size: 1.3rem; color: #0a4d68;">Saumya
-                            Shah</span>
+                        <span class="vertical-align-middle"
+                            style="font-size: 1.3rem; color: #0a4d68;">{{member.name}}</span>
                     </div>
                     <div>
                         <span class="count-style">&#x20b9; 0</span>
@@ -15,9 +15,9 @@
             </ng-template>
             <ng-template pTemplate="content">
                 <div class="flex flex-column gap-2">
-                    <label htmlFor="username" style="font-weight: 700;">Select Person</label>
-                    <p-dropdown class="flex flex-column" [options]="cities" [(ngModel)]="selectedCity"
-                        optionLabel="name"></p-dropdown>
+                    <label htmlFor="username" style="font-weight: 700;">Select Person For Settle Your Bill</label>
+                    <p-dropdown class="flex flex-column" [options]="members" [(ngModel)]="selectedPerson"
+                        optionLabel="name" placeholder="Select Person"></p-dropdown>
                     <div class="flex align-items-center mb-2" style="margin-top: 0.5rem;">
                         <div style="padding-right: 0.5rem;">
                             <label class="label-font-style">Amount : </label>
@@ -33,39 +33,7 @@
                 </div>
             </ng-template>
         </p-accordionTab>
-        <p-accordionTab>
-            <ng-template pTemplate="header">
-                <div class=" w-100 flex align-items-center justify-content-between">
-                    <div>
-                        <i class="pi pi-search mr-2"></i>
-                        <span class="vertical-align-middle" style="font-size: 1.3rem; color: #0a4d68;">Ruchit
-                            Shah</span>
-                    </div>
-                    <div>
-                        <span class="count-style">&#x20b9; 0</span>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template pTemplate="content">
-                <div class="flex flex-column gap-2">
-                    <label htmlFor="username" style="font-weight: 700;">Select Person</label>
-                    <p-dropdown class="flex flex-column" [options]="cities" [(ngModel)]="selectedCity"
-                        optionLabel="name"></p-dropdown>
-                    <div class="flex align-items-center mb-2" style="margin-top: 0.5rem;">
-                        <div style="padding-right: 0.5rem;">
-                            <label class="label-font-style">Amount : </label>
-                        </div>
-                        <div>
-                            <span class="count-style">&#x20b9; 0</span>
-                        </div>
-                    </div>
-                    <p-button styleClass="p-button-blue p-button-sm w-100 text-center btn">
-                        <span class="w-100" style="font-weight: 500; font-size: 1.2rem;">
-                            <i class="fa-regular fa-handshake"></i> Settle Up</span>
-                    </p-button>
-                </div>
-            </ng-template>
-        </p-accordionTab>
+
 
 
     </p-accordion>

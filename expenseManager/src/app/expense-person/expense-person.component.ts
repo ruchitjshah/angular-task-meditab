@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MembersService } from '../service/members.service';
 
-
-interface City {
+interface IMembers {
   name: string;
-  code: string;
+  id: string;
 }
 @Component({
   selector: 'app-expense-person',
@@ -11,16 +11,17 @@ interface City {
   styleUrls: ['./expense-person.component.css'],
 })
 export class ExpensePersonComponent implements OnInit {
-  cities: City[] | any;
-
-  selectedCity: City | any;
+  members: IMembers[] = [];
+  // selectedMember: IMembers[] = [];
+  selectedPerson: IMembers | any;
+  constructor(private memberService: MembersService) {}
   ngOnInit(): void {
-    this.cities = [
-      { name: 'Ruchit Shah', code: 'NY' },
-      { name: 'Raj Patel', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' },
-    ];
+    this.getmembers();
+  }
+
+  getmembers() {
+    this.memberService.getMembers().subscribe((value) => {
+      this.members = value;
+    });
   }
 }

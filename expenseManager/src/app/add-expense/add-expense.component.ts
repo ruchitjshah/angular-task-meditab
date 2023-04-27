@@ -120,6 +120,10 @@ export class AddExpenseComponent implements OnInit {
       });
 
     this.expenseForm.reset();
+    while (this.allCheckBoxControls.length !== 0) {
+      this.distributeField.removeAt(0); //remove formArray items
+    }
+    this.getMembersForDistribute();  //again set fromArray 
     this.tempTotalAmount = [0];
     this.totalPerson = 0;
     this.totalAmount = 0;
