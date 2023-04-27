@@ -18,7 +18,8 @@
                         <ng-container [formGroupName]="i">
                             <div style="width: 75%;" class="flex align-items-center">
                                 <p-checkbox name="isSelect" [value]='true' formControlName="isSelect"
-                                    [inputId]="member.id" (onChange)="onCheckboxChange(amount,i)"></p-checkbox>
+                                    [inputId]="member.id" (onChange)="onCheckboxChange(amount,i)">
+                                </p-checkbox>
                                 <input type="text" class="label-input-field" pInputText formControlName='name'
                                     placeholder="{{ member.name }}" />
                                 <!-- <label [for]="category.id" style="padding-left: 0.5rem;"></label> -->
@@ -69,3 +70,4 @@
         </div>
     </form>
 </div>
+<p-toast position="bottom-center"></p-toast>

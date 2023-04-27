@@ -4,6 +4,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExpensesService } from '../service/expenses.service';
 import { formatDate } from '@angular/common';
 import { Observable } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 interface IMembers {
   name: string;
@@ -37,7 +38,8 @@ export class AddExpenseComponent implements OnInit {
   constructor(
     private expensesService: ExpensesService,
     private memberService: MembersService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -47,23 +49,25 @@ export class AddExpenseComponent implements OnInit {
   getMembersForDistribute() {
     this.memberService.getMembers().subscribe((value) => {
       this.members = value;
-      for (let i = 0; i < this.members.length; i++) {
-        this.setDistributeBetween(this.members[i].name);
-      }
+      this.members.forEach((member) => {
+        this.setDistributeBetween(member);
+      });
     });
   }
 
-  setDistributeBetween(memberName: string) {
-    let distributeField = this.expenseForm.get(
-      'distributeBetween'
-    ) as FormArray;
-    distributeField.push(
+  setDistributeBetween(member: any) {
+    this.distributeField.push(
       this.fb.group({
-        name: [{ value: memberName, disabled: true }],
+        name: [{ value: member.name, disabled: true }],
         amount: [{ value: 0, disabled: true }],
+        userId: [member.id],
         isSelect: [false],
       })
     );
+  }
+
+  get distributeField() {
+    return this.expenseForm.get('distributeBetween') as FormArray;
   }
 
   get allCheckBoxControls() {
@@ -105,12 +109,22 @@ export class AddExpenseComponent implements OnInit {
     this.expenseForm.get('totalPerson')?.setValue(this.totalPerson.toString());
     this.expensesService
       .addexpense(this.expenseForm.value)
-      .subscribe((value) => {});
+      .subscribe((value) => {
+        if (value) {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Expense Added Successfully...',
+          });
+        }
+      });
 
     this.expenseForm.reset();
     this.tempTotalAmount = [0];
     this.totalPerson = 0;
     this.totalAmount = 0;
-    this.expensesService.loadExpenses.emit();
+    setTimeout(() => {
+      this.expensesService.loadExpenses.emit();
+    }, 1500);
   }
 }

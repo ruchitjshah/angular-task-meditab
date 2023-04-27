@@ -5,7 +5,6 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ExpensesService {
-  
   loadExpenses: EventEmitter<any> = new EventEmitter();
   constructor(private http: HttpClient) {}
 
@@ -13,6 +12,7 @@ export class ExpensesService {
     let temp: any = [];
     for (let i = 0; i < expenseObj?.distributeBetween.length; i++) {
       if (expenseObj.distributeBetween[i].isSelect.length) {
+        delete expenseObj.distributeBetween[i].isSelect;
         temp.push(expenseObj.distributeBetween[i]);
       }
     }

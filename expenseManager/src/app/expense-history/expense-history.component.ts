@@ -20,7 +20,7 @@ export class ExpenseHistoryComponent implements OnInit {
 
   getAllExpenses() {
     this.expenseService.getAllExpenses().subscribe((value) => {
-      this.expensesArray = value;
+      this.expensesArray = value.reverse();
       // console.log(this.expensesArray);
     });
   }
