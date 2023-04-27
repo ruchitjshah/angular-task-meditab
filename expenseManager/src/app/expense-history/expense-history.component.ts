@@ -8,6 +8,8 @@ import { ExpensesService } from '../service/expenses.service';
 })
 export class ExpenseHistoryComponent implements OnInit {
   expensesArray: Array<any> = [];
+  first: number = 0;
+  rows: number = 6;
 
   constructor(private expenseService: ExpensesService) {}
 
@@ -23,5 +25,10 @@ export class ExpenseHistoryComponent implements OnInit {
       this.expensesArray = value.reverse();
       // console.log(this.expensesArray);
     });
+  }
+
+  onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
   }
 }

@@ -24,7 +24,7 @@ export class AddExpenseComponent implements OnInit {
     paidBy: ['', Validators.required],
     totalAmount: [''],
     totalPerson: [''],
-    date: [formatDate(this.currentDate, 'dd/MM/yyyy', 'en-US')],
+    date: [''],
   });
 
   members: IMembers[] = [];
@@ -107,6 +107,9 @@ export class AddExpenseComponent implements OnInit {
   onFormSubmit() {
     this.expenseForm.get('totalAmount')?.setValue(this.totalAmount.toString());
     this.expenseForm.get('totalPerson')?.setValue(this.totalPerson.toString());
+    this.expenseForm
+      .get('date')
+      ?.setValue(formatDate(this.currentDate, 'dd/MM/yyyy', 'en-US'));
     this.expensesService
       .addexpense(this.expenseForm.value)
       .subscribe((value) => {
@@ -123,7 +126,7 @@ export class AddExpenseComponent implements OnInit {
     while (this.allCheckBoxControls.length !== 0) {
       this.distributeField.removeAt(0); //remove formArray items
     }
-    this.getMembersForDistribute();  //again set fromArray 
+    this.getMembersForDistribute(); //again set fromArray
     this.tempTotalAmount = [0];
     this.totalPerson = 0;
     this.totalAmount = 0;

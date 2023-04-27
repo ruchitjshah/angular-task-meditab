@@ -7,31 +7,40 @@
             <h3 style="text-align: center; margin-top: 1rem; color: #0a4d68;">No Expenses To Display</h3>
         </div>
         <ng-template #elseBlock>
-            <div class="card" *ngFor="let expense of expensesArray">
-                <div class="card-body">
-                    <div class="flex justify-content-between card-header">
-                        <div class="">
-                            <h5 class="expense-name">{{expense.expenseName}}</h5>
-                        </div>
-                        <div>
-                            <h5 class="expense-date">{{expense.date}}</h5>
-                        </div>
-                    </div>
+            <div class="flex justify-content-between" style="flex-direction: column; height: 100%;">
+                <div style="height: calc(100vh - 29.5vh); overflow: hidden; overflow-y: scroll;">
+                    <div class="card" *ngFor="let expense of expensesArray">
+                        <div class="card-body">
+                            <div class="flex justify-content-between card-header">
+                                <div class="">
+                                    <h5 class="expense-name">{{expense.expenseName}}</h5>
+                                </div>
+                                <div>
+                                    <h5 class="expense-date">{{expense.date}}</h5>
+                                </div>
+                            </div>
 
-                    <div class="flex justify-content-between align-items-center w-100">
-                        <div class="history-area" style="width: 70%;">
-                            <h6 class="card-subtitle mb-1 text-muted">Paid By : <span>{{expense.paidBy.name}}</span>
-                            </h6>
-                            <span class="card-text" *ngFor="let distributPerson of expense.distributeBetween">
-                                <span> {{distributPerson.name}}: </span>
-                                <span class="distributed-price">&#x20b9;{{distributPerson.amount}} </span>
-                                <span>|</span>
-                            </span>
-                        </div>
-                        <div style="width: 30%; text-align: right;">
-                            <h2 class="expense-price">&#x20b9;{{expense.totalAmount}}</h2>
+                            <div class="flex justify-content-between align-items-center w-100">
+                                <div class="history-area" style="width: 70%;">
+                                    <h6 class="card-subtitle mb-1 text-muted">Paid By :
+                                        <span>{{expense.paidBy.name}}</span>
+                                    </h6>
+                                    <span class="card-text" *ngFor="let distributPerson of expense.distributeBetween">
+                                        <span> {{distributPerson.name}}: </span>
+                                        <span class="distributed-price">&#x20b9;{{distributPerson.amount}} </span>
+                                        <span>|</span>
+                                    </span>
+                                </div>
+                                <div style="width: 30%; text-align: right;">
+                                    <h2 class="expense-price">&#x20b9;{{expense.totalAmount}}</h2>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="flex justify-content-center" *ngIf="this.expensesArray.length">
+                    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+                        [totalRecords]="this.expensesArray.length"></p-paginator>
                 </div>
             </div>
         </ng-template>

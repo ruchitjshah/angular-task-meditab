@@ -23,6 +23,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MessageService } from 'primeng/api';
     AccordionModule,
     TabViewModule,
     ToastModule,
+    PaginatorModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

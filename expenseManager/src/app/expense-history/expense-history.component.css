@@ -29,8 +29,6 @@
 .history {
   margin-top: 5rem;
   height: calc(100vh - 28vh);
-  overflow: hidden;
-  overflow-y: scroll;
 }
 
 .card {
